@@ -17,6 +17,8 @@ class UsersTest < ActiveSupport::TestCase
     	assert(@user.respond_to?(:password_digest), "User should respond to password_digest")
     	assert(@user.respond_to?(:password), "User should respond to password")
     	assert(@user.respond_to?(:password_confirmation), "User should respond to password_confirmation")
+    	assert(@user.respond_to?(:remember_token), "User should respond to remember_token")
+    	assert(@user.respond_to?(:authenticate), "User should respond to authenticate")
   	end
 
   	test "user should not save without name" do
@@ -78,6 +80,11 @@ class UsersTest < ActiveSupport::TestCase
   	test "password should be at least 6 characters" do
   		@user.password_confirmation = @user.password = "abcde"
   		assert_not(@user.valid?, "Saved user with too short a password")
+  	end
+
+  	test "user should not save without remember_token" do
+  		@user.save 
+  		assert_not @user.remember_token == nil, "Can save user without remember_token"
   	end
 
 end
