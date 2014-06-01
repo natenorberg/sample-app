@@ -9,5 +9,14 @@ module ApplicationHelper
 			"#{base_title} | #{page_title}"
 		end 
 	end
+
+	def alert_class_for flash_type
+		case flash_type
+		when :success
+			"alert_success"
+		when :error
+			"alert_danger"
+		end
+	end
 	
 end

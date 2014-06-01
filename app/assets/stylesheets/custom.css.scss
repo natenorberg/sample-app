@@ -9,15 +9,13 @@
 
 /* variables */
 $grayMediumLight: #eaeaea;
+$grayDarker: #dddddd;
+$grayLighter: #aaaaaa;
 
 /* universal */ 
 
 html {
   overflow-y: scroll;
-}
-
-body {
-  padding-top: 60px;
 }
 
 section {
@@ -50,25 +48,6 @@ h1 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
-}
-
-/* header */
-
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  line-height: 1;
-}
-
-#logo :hover {
-   color: #fff;
-   text-decoration: none;
 }
 
 /* footer */
@@ -134,7 +113,7 @@ aside {
 
 /* Forms */
 
-input, textarea, select, .uneditable-input {
+input, textarea, select, .uneditable-input, .form-control {
 	border: 1px solid #bbb;
 	border-radius: 0px;
 	width: 100%;
@@ -143,6 +122,10 @@ input, textarea, select, .uneditable-input {
 	margin-bottom: 15px;
 	box-shadow: 0px 0px 3px #ccc inset;
 	@include box_sizing;
+}
+
+.input-group {
+  margin-bottom: 20px;
 }
 
 #error_explanation {
