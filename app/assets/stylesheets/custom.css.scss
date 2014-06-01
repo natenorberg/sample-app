@@ -116,7 +116,6 @@ aside {
 input, textarea, select, .uneditable-input, .form-control {
 	border: 1px solid #bbb;
 	border-radius: 0px;
-	width: 100%;
 	padding: 10px;
 	height: auto;
 	margin-bottom: 15px;
@@ -138,7 +137,7 @@ input, textarea, select, .uneditable-input, .form-control {
 
 .field_with_errors {
 	@extend .control-group;
-	@extend .error;
+	@extend .has-error;
 }
 
 /* Debug */
