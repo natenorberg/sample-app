@@ -2,41 +2,54 @@ require 'spec_helper'
 
 describe "Static pages" do
 
-	let(:base_title) { "Ruby on Rails Tutorial Sample App" }
+	subject { page }
+
+	shared_examples_for "all static pages" do
+		it { should have_selector('h1', text: heading) }
+		it { should have_title(heading) }
+	end
 
 	describe "Home page" do
-    	it "should have the h1 'Sample App'" do
-      		visit root_path
-      		page.should have_selector('h1', :text => 'Sample App')
-    	end
+		before { visit root_path }
 
-    	it "should have the title 'Sample App'" do
-      		visit root_path
-      		page.should have_title("#{base_title} | Home")
-    	end
-  	end
+		let(:heading) { 'Sample App' }
+		it_should_behave_like "all static pages"
+		it { should_not have_selector('title', text: '| Home') }
+	end
 
   	describe "Help page" do
-  		it "should have the h1 'Help'" do
-  			visit help_path
-  			page.should have_selector('h1', :text => 'Help')
-  		end
+  		before { visit help_path }
 
-		it "should have the title 'Help'" do
-  			visit help_path
-  			page.should have_title("#{base_title} | Help")
-  		end  		
+		let(:heading) { 'Help' }
+		it_should_behave_like "all static pages"
   	end
 
   	describe "About page" do
-  		it "should have the h1 'About Us'" do
-  			visit about_path
-  			page.should have_selector('h1', :text => 'About Us')
-  		end
+  		before { visit about_path }
 
-  		it "should have the title 'About Us'" do
-  			visit about_path
-  			page.should have_title("#{base_title} | About Us")
-  		end
+		let(:heading) { 'About' }
+		it_should_behave_like "all static pages"
   	end
+
+  	describe "Contact page" do
+  		before { visit contact_path }
+
+		let(:heading) { 'Contact' }
+		it_should_behave_like "all static pages"
+  	end
+
+  	it "should have the right links on the layout" do 
+	    visit root_path
+	    click_link "About"
+	    page.should have_title 'About Us'
+	    click_link "Help"
+	    page.should # fill in 
+	    click_link "Contact"
+	    page.should # fill in 
+	    click_link "Home"
+	    click_link "Sign up now!"
+	    page.should # fill in 
+	    click_link "Sample App"
+	    page.should # fill in 
+  	end 
 end
