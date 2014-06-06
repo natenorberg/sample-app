@@ -50,6 +50,25 @@ p {
   line-height: 1.7em;
 }
 
+/* header */
+.navbar-default .navbar-nav > li > a {
+    padding: 15px 10px 10px 10px;
+    font-size: 15px;
+    & > .glyphicon {
+      margin-right: 3px;
+    }
+}
+
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > li > a:hover {
+    color: #266cc8;
+    background-color: #f8f8f8;
+    border-bottom: #266cc8 5px solid;
+}
+
 /* footer */
 
 footer {
@@ -123,7 +142,7 @@ input, textarea, select, .uneditable-input, .form-control {
 	@include box_sizing;
 }
 
-.input-group {
+.input-group, .btn {
   margin-bottom: 20px;
 }
 
@@ -138,6 +157,25 @@ input, textarea, select, .uneditable-input, .form-control {
 .field_with_errors {
 	@extend .control-group;
 	@extend .has-error;
+}
+
+/* users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+  }
+}
+
+.users > a.list-group-item {
+   height: 70px;
+   img.gravatar {
+     height: 50px;
+   }
 }
 
 /* Debug */

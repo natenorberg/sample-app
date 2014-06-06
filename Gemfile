@@ -4,7 +4,11 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 gem 'bootstrap-sass', '>= 3.0'
+gem 'rspec-rails'
 gem 'bcrypt-ruby'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+gem 'faker'
 
 group :development, :test do
 	# Use sqlite3 as the database for Active Record
@@ -14,6 +18,10 @@ end
 
 group :production do
 	gem 'pg'
+end
+
+group :test do 
+	gem 'capybara'
 end
 
 # Use SCSS for stylesheets

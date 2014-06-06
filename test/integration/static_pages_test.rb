@@ -9,7 +9,7 @@ class StaticPagesTest < ActionDispatch::IntegrationTest
 	test "home page has header 'Sample App'" do
 		get root_path
 		assert_response :success
-		assert_select 'h1', "Welcome to the Sample App"
+		assert_select 'h1', "Ruby on Rails Sample App"
 		assert_select 'title', :text => @base_title
 	end
 

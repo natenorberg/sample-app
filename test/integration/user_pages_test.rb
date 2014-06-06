@@ -17,6 +17,21 @@ class UserPagesTest < ActionDispatch::IntegrationTest
 		assert_select 'title', text: full_title(@user.name)
 	end
 
+	# test "edit page" do
+	# 	create_test_user
+	# 	get edit_user_path(@user)
+	# 	assert_response :success
+	# 	assert_select 'h1', "Update your profile"
+	# 	assert_select 'title', text: full_title("Edit user")
+	# end
+
+	test "index page" do
+		get users_path
+		assert_response :success
+		assert_select 'h1', "All users"
+		assert_select 'title', text: full_title("All users")
+	end
+
 	def create_test_user
 		name = "Nate Norberg"
 		email = "natenorberg@gmail.com"
