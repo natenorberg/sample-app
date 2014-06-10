@@ -23,8 +23,6 @@ end
 group :test do 
 	gem 'capybara'
 	gem 'factory_girl_rails', '1.4.0'
-  gem 'cucumber-rails', '1.2.1', require: false 
-  gem 'database_cleaner', '0.7.0'
 end
 
 # Use SCSS for stylesheets
