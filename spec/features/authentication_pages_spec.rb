@@ -42,6 +42,23 @@ describe "Authentication" do
   describe "authorization" do
 
     describe "for non-signed-in users" do
+      let(:user) { FactoryGirl.create(:user) }
+
+      describe "in the Microposts controller" do
+        
+        describe "submitting the create action", type: :request do
+          before { post microposts_path }
+          specify { response.should redirect_to(login_path) }
+        end
+
+        describe "submitting the delete action", type: :request do
+          before do
+            micropost = FactoryGirl.create(:micropost)
+            delete micropost_path(micropost)
+          end
+          specify { response.should redirect_to(login_path) }
+        end
+      end
 
       describe "in the Users controller" do
 

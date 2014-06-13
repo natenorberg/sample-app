@@ -1,6 +1,6 @@
 <% provide(:title, @user.name) %> 
 <div class="row"> 
-  <aside class="span4"> 
+  <aside class="col-md-4"> 
     <section> 
       <h1> 
         <%= gravatar_for @user %> 
@@ -8,4 +8,19 @@
       </h1> 
     </section> 
   </aside> 
+  <div class="col-md-8">
+  	<div class="panel panel-default">
+  		<div class="panel-heading"><h3 class="panel-title">Microposts <span class="badge"><%= @user.microposts.count %></span></h3></div>
+  		<% if @user.microposts.any? %>
+  			<ul class="list-group">
+  				<%= render @microposts %>
+  			</ul>
+  		<% else %>
+  		<div class="panel-body">
+  			<em>No posts to show</em>
+  		</div>
+  		<% end %>
+  		</div>
+  	<%= will_paginate @microposts, renderer: BootstrapPagination::Rails %>
+  </div>
 </div>
